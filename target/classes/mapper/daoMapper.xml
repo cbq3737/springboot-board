@@ -17,4 +17,16 @@
     <update id="updateMember" parameterType="com.springbootdatabase.model.MemberModel">
         UPDATE t1 SET name= #{name},nickname= #{nickname},position=#{position} WHERE id = #{id}
     </update>
+
+    <select id="loginMember" resultType="Integer">
+        select * from t1 WHERE id = #{id} AND name = #{name}
+    </select>
+
+    <select id="findMember" resultType="com.springbootdatabase.model.MemberModel">
+        select * from t1 WHERE id = #{id}
+    </select>
+
+    <select id="checkId" resultType="Integer">
+        select COUNT(*) from t1 WHERE id = #{id}
+    </select>
 </mapper>

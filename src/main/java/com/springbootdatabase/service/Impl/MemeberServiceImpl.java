@@ -28,7 +28,6 @@ public class MemeberServiceImpl implements MemberService {
     {
         dao.setMember(member);
     }
-
     @Override
     public void deleteMember(MemberModel member)
     {
@@ -38,5 +37,39 @@ public class MemeberServiceImpl implements MemberService {
     public void updateMember(MemberModel member)
     {
         dao.updateMember(member);
+    }
+
+    @Override
+    public boolean loginMember(MemberModel member)
+    {
+        int result = dao.loginMember(member);
+
+        if(result>0)//id와 name에 맞는게 하나이상이라도 있다면 성공
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    @Override
+    public MemberModel findMember(MemberModel member)
+    {
+        MemberModel model1 = dao.findMember(member);
+        return model1;
+    }
+
+    public boolean checkId(MemberModel member)
+    {
+        int result =dao.checkId(member);
+        if(result>0)//id가 1개이상이라면
+        {
+            return false; //중복임
+        }
+        else
+        {
+            return true;    //중복아님
+        }
     }
 }

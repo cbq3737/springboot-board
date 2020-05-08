@@ -41,9 +41,25 @@
                     <input type="submit" value="수정"></form>
                     </td>
                 </tr>
+
             </c:forEach>
+             <tr>
+                      <form name="add" id="add" method="get" action="/addMember">
+                      <input type="submit" value="추가하기"/>
+                      </form>
+             </tr>
+             <tr>
+                            <form name="login" id="login" method="get" action="/loginMember">
+                            <input type="submit" value="로그인하기"/>
+                            </form>
+             </tr>
+
         </tbody>
     </table>
+    <form name="check" id="check" method="post" action="/checkId">
+    <input type="text" name="id" />
+    <input type="submit" value="중복체크"/>
+    </form>
 </body>
 
 </html

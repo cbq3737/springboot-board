@@ -7,27 +7,21 @@ import lombok.Setter;
 @Setter
 public class MemberModel {
     private int id;
+    private String password ;
     private String name;
-    private String nickname;
-    private String position;
+    private int age;
 
 
     public void setId(int id)
     {
         this.id = id;
     }
+    public void setPassword(String password)    { this.password = password;}
     public void setName(String name)
     {
-        this.name = name;
+        this.name=name;
     }
-    public void setNickname(String nickname)
-    {
-        this.nickname=nickname;
-    }
-    public void setPosition(String position)
-    {
-        this.position=position;
-    }
+    public void setAge(int age){this.age=age;}
 }
 
 

@@ -3,18 +3,30 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.springbootdatabase.dao.MemberDao">
     <select id="getMember" resultType="com.springbootdatabase.model.MemberModel">
-        select * from t1
+        select * from member
     </select>
 
     <insert id="setMember" parameterType="com.springbootdatabase.model.MemberModel">
-        INSERT INTO t1 VALUES(#{id}, #{name}, #{nickname}, #{position})
+        INSERT INTO member VALUES(#{id}, #{name}, #{password}, #{age})
     </insert>
 
     <delete id="deleteMember" parameterType="com.springbootdatabase.model.MemberModel">
-        DELETE FROM t1 WHERE id = #{id} AND name = #{name}
+        DELETE FROM member WHERE id = #{id} AND password = #{password}
     </delete>
 
     <update id="updateMember" parameterType="com.springbootdatabase.model.MemberModel">
-        UPDATE t1 SET name= #{name},nickname= #{nickname},position=#{position} WHERE id = #{id}
+        UPDATE member SET name= #{name},password = #{password},age=#{age} WHERE id = #{id}
     </update>
+
+    <select id="loginMember" resultType="Integer">
+        select * from member WHERE id = #{id} AND password = #{password}
+    </select>
+
+    <select id="findMember" resultType="com.springbootdatabase.model.MemberModel">
+        select * from member WHERE id = #{id}
+    </select>
+
+    <select id="checkId" resultType="Integer">
+        select COUNT(*) from member WHERE id = #{id}
+    </select>
 </mapper>
